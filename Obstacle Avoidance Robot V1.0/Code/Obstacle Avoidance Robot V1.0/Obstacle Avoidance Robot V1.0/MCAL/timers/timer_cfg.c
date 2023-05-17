@@ -10,5 +10,11 @@ const TIMER_cfg Timer_cfgArray[TIMER_NUM]={
 		NORMAL_MODE , PRECALER_1024  // PWM NEEDS THESE CONFG
 	}, 
 	
+	{
+		
+	},
 	
+	{
+		NORMAL_MODE , PRECALER_1024
+	}
 };

@@ -24,9 +24,33 @@
 #define   RS           pina1
 #define   RW           pina2
 #define   EN           pina3
-
 /*********************************************************************************/
+typedef enum{
+	FIRST_LINE =1,
+	SECOND_LINE
+	
+}LINE;
 
+
+typedef enum{
+	COL_0,
+	COL_1,
+	COL_2,
+	COL_3,
+	COL_4,
+	COL_5,
+	COL_6,
+	COL_7,
+	COL_8,
+	COL_9,
+	COL_10,
+	COL_11,
+	COL_12,
+	COL_13,
+	COL_14,
+	COL_15,
+}COLS;
+/*********************************************************************************/
 void LCD_WRITE_COMMAND(uint8_t a_COMMAND);
 void LCD_WRITE_DATA(uint8_t a_DATA);
 

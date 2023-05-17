@@ -8,10 +8,7 @@
 static double g_ovfNum  ; 
 static double g_time ;
 
- // used in TIMER_2_INT
-uint8_t car_mode = 0;
-int32_t mode_ovf = 0;
-static int32_t ovf = 0;
+
 /******************************************************************************************************/
 //										 TIMER 0
 /**************************************************************************************************/
@@ -290,10 +287,10 @@ ISR(TIMER1_OVF_vect)
 
 
 
-Timer_ErrorStatus TIMER_2_init(Timer_Mode a_mode){
+Timer_ErrorStatus TIMER_2_init(){
 	Timer_ErrorStatus errorStatus = TIMER_OK;
 	
-	switch(a_mode){
+	switch(Timer_cfgArray[TIMER_2].mode){
 		
 		case NORMAL_MODE :
 		clear_bit(TCCR2,WGM20);
@@ -353,10 +350,10 @@ Timer_ErrorStatus TIMER_2_setIntialValue(uint8_t a_value){
 
 
 
-Timer_ErrorStatus TIMER_2_start(Timer_Prescaler a_prescaler){
+Timer_ErrorStatus TIMER_2_start(){
 	Timer_ErrorStatus errorStatus = TIMER_OK;
 	
-	switch(a_prescaler){
+	switch(Timer_cfgArray[TIMER_2].prescaler){
 		
 		case PRECALER_1 :
 		set_bit(TCCR2,CS20);
@@ -466,36 +463,27 @@ void TIMER_2_DELAY_MS(double time_ms){
 void TIMER_2_INT(){
 	sei();
 	set_bit(TIMSK,TOIE2);
-	TIMER_2_init(NORMAL_MODE);
+	TIMER_2_init();
 	TIMER_2_setIntialValue(0);
-	TIMER_2_start(PRECALER_1);
+	TIMER_2_start();
 	
 	
 	
 }
 
 
+static void (*ptrf_TIMER_2)(void)=NULL;
 
+void TIMER_2_SetCallBack(void(*ptrf)(void)){
+	
+	ptrf_TIMER_2 = ptrf;
+	
+}
 
 ISR(TIMER2_OVF){
-	if(g_timerFlag == 1){
-		
-		if (ovf < mode_ovf ){
-			ovf++;
-		}
-		else if ( ovf == mode_ovf && mode_ovf!=0){
-			ovf =0 ;
-			
-			if (car_mode < 8)
-			{
-				car_mode++;
-				
-			}else{
-				delay_5_Sec = 1 ;
-			}
-			
-		}
-		
-	}
+	
+	
+	ptrf_TIMER_2();
+	
 	
 }

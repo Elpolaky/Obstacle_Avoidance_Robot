@@ -98,14 +98,15 @@ void Timer1_OVF_SetCallBack(void(*LocalFptr)(void));
 
 
 /********************************** TIMER_2_ ******************************************/
-Timer_ErrorStatus TIMER_2_init(Timer_Mode a_mode);
-Timer_ErrorStatus TIMER_2_start(Timer_Prescaler a_prescaler);
+Timer_ErrorStatus TIMER_2_init( );
+Timer_ErrorStatus TIMER_2_start();
 void TIMER_2_stop(void);
 Timer_ErrorStatus TIMER_2_setIntialValue(uint8_t a_value);
 Timer_ErrorStatus TIMER_2_OvfNum(double overflow);
 void TIMER_2_DELAY_MS(double _delay);
 
 void TIMER_2_INT();
+void TIMER_2_SetCallBack(void(*ptrf)(void));
 
 
 

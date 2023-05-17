@@ -2,6 +2,7 @@
 #ifndef UTILES_H_
 #define UTILES_H_
 
+
 #define set_bit(reg,bit)            reg=(reg|(1<<bit))
 #define clear_bit(reg,bit)           reg=(reg&(~(1<<bit)))
 #define read_bit(reg,bit)              ((reg>>bit)&1)

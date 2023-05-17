@@ -29,7 +29,11 @@ main.d main.o: .././main.c .././APP/app.h .././APP/../MCAL/dio/dio.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdint.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h
+ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
+ .././APP/../HAL/car\ control/carControl.h \
+ .././APP/../HAL/car\ control/../../MCAL/dio/dio.h \
+ .././APP/../HAL/car\ control/../../MCAL/timers/timer.h \
+ .././APP/../HAL/car\ control/../motor/motor.h
 
 .././APP/app.h:
 
@@ -100,3 +104,11 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
+
+.././APP/../HAL/car\ control/carControl.h:
+
+.././APP/../HAL/car\ control/../../MCAL/dio/dio.h:
+
+.././APP/../HAL/car\ control/../../MCAL/timers/timer.h:
+
+.././APP/../HAL/car\ control/../motor/motor.h:

@@ -38,15 +38,12 @@ const DIO_PINSTATUS_TYPE PinsStatusArray[TOTAL_PINS]=
 };
 
 
-dio_config dio_arr[Pins_Total]={ {pina0,INPLUP},
-								 {pinc7,OUTPUT},
-								 {pind7,INPLUP},
-								 {pinb2,OUTPUT},
-								 {pind1,INPLUP},
-								 {pinc5,OUTPUT},
-								 {pinc4,OUTPUT},
-								 {pina7,INPLUP},
-								 {pina5,INFREE},
-								 {pind6,OUTPUT},
-								 {pind6,OUTPUT},
-};
+dio_config dio_arr[Pins_Total]={ 
+	
+	{pinb0,OUTPUT},
+	{},
+	{pinc2,OUTPUT},
+							
+							
+							
+							 };

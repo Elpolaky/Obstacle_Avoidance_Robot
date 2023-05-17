@@ -6,9 +6,9 @@
 int main(void)
 {
 	
-  
-    while (1) 
-    {
-    }
+  app_Init();
+  while(1){
+  app_Start();
+  }
 }
 

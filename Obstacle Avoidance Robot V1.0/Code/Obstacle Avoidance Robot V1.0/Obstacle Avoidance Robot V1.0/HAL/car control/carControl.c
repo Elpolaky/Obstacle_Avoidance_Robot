@@ -23,7 +23,7 @@ float g_time2;
 
 
 
-
+/*****************************************************************************************************
 /**DESCRIPTION:-
   this function is used to make pwm in pin pinb0
   **/
@@ -39,9 +39,11 @@ void pwm(float a_speed){
 	
 }
 
-/*****************************************************************************************************
-**DESCRIPTION:-
-this function calculates the time nedded of rotation to turn the car 90 degree*/
+
+
+/*****************************************************************************************************/
+/**DESCRIPTION:-
+this function calculates the time needed of rotation to turn the car 90 degree*/
 
 void rotate_90degree_calculation (void)
 {
@@ -57,27 +59,36 @@ void rotate_90degree_calculation (void)
 	//(2.1)  rotation per wheel= rotation_per_circle/0.25
 	//(2.2) time needed for car to turn 90 degree= (rotation per wheel/maximum speed percentage)*60) in sec
 	time_rotation_state= ((rotation_per_circle*0.25)/(max_speed*0.1))*60;
-	
-	
+
+
 }
 
 
-/*******************************************************************************************************************************************
-**DESCRIPTION:-
-this function makes the car stop for another 0.5 sec then rotate 90 degree to the right then stop for another 0.5 sec
-LED four is the indicator of rotating phase*/
-
-void rotate_90degree_state (void)
+/*******************************************************************************************************************************************/
+/**DESCRIPTION:-
+this function makes the car rotate 90 degree to the right */
+void rotate_90degree_Right (void)
 {
-	DIO_WRITEPIN(pinc0,LOW);
 	rotate_90degree_calculation();
-	mode_ovf= time_rotation_state/ 0.000256 ;  // 3.75 seconds for simulation test
-	//mode_ovf= 15625 ;
+	//mode_ovf = time_rotation_state/ 0.000256 ;  // 3.75 seconds for simulation test
 	// Rotation state
-	Car_Rotating();
-	
-	DIO_WRITEPIN(pinc3,HIGH);
+	Car_Rotating_Right();
+	// set speed of rotation
 	pwm(10);
-
+	TIMER_0_DELAY_MS(time_rotation_state);
+}
+/*************************************************************************************************************************************************/
+/*******************************************************************************************************************************************/
+/**DESCRIPTION:-
+this function makes the car rotate 90 degree to the Left */
+void rotate_90degree_Left (void)
+{
+	rotate_90degree_calculation();
+	//mode_ovf = time_rotation_state/ 0.000256 ;  // 3.75 seconds for simulation test
+	// Rotation state
+	Car_Rotating_Left();
+	// set speed of rotation
+	pwm(10);
+	TIMER_0_DELAY_MS(time_rotation_state);
 }
 /*************************************************************************************************************************************************/

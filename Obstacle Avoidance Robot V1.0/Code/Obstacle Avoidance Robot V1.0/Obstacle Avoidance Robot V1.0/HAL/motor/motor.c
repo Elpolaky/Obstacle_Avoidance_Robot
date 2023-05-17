@@ -27,6 +27,20 @@ void Car_Moving_FWD(void)
 	
 }
 
+
+/**************************************************************************************************************/
+/**DESCRIPTION:-
+this fumction is used to drive the motor to move in the +VE direction which will lead the car to move FWD
+**/
+void Car_Moving_BWD(void)
+{
+	DIO_WRITEPIN(motor1_0,HIGH);          //this is used to provide voltage to the +ve pin of the motor
+	DIO_WRITEPIN(motor1_1,LOW);           //this is used to provide the ground to the -ve pin of
+	DIO_WRITEPIN(motor2_0,HIGH);
+	DIO_WRITEPIN(motor2_1,LOW);
+	
+}
+
 /***********************************************************************************************************************/
 /**DESCRIPTION:-
 this function is used to drive the right wheels to move FWD, and the left wheels to move BWD,
@@ -54,5 +68,36 @@ void Car_Stop(void)
   DIO_WRITEPIN(motor1_1,LOW);           
   DIO_WRITEPIN(motor2_0,LOW);
   DIO_WRITEPIN(motor2_1,LOW);
+
+}
+
+/***********************************************************************************************************************/
+/**DESCRIPTION:-
+this function is used to drive the right wheels to move FWD, and the left wheels to move BWD,
+which will lead to rotation of the car */
+void Car_Rotating_Right(void)
+{
+	//this is used to provide the ground to the -ve pin of
+	DIO_WRITEPIN(motor1_0,HIGH);
+	DIO_WRITEPIN(motor1_1,LOW);
+	
+	//this is used to provide voltage to the +ve pin of the motor
+	DIO_WRITEPIN(motor2_0,LOW);
+	DIO_WRITEPIN(motor2_1,HIGH);
+
+}
+/***********************************************************************************************************************/
+/**DESCRIPTION:-
+this function is used to drive the left wheels to move FWD, and the right wheels to move BWD,
+which will lead to rotation of the car */
+void Car_Rotating_Left(void)
+{
+	//this is used to provide the ground to the -ve pin of
+	DIO_WRITEPIN(motor1_0,LOW);
+	DIO_WRITEPIN(motor1_1,HIGH);
+	
+	//this is used to provide voltage to the +ve pin of the motor
+	DIO_WRITEPIN(motor2_0,HIGH);
+	DIO_WRITEPIN(motor2_1,LOW);
 
 }
