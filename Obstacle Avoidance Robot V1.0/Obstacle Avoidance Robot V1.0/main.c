@@ -7,12 +7,12 @@ int main(void)
 {
 	
   app_Init();
-  //DIO_INITPIN(pind4,OUTPUT);
+ DIO_INITPIN(pind4,OUTPUT);
 // start_stage();
  while(1){
- //pwm(30);
+ pwm(90);
 //CAR_no_obstacle_less_70();
-CAR_no_obstacle_between_30_and_70();
+//CAR_no_obstacle_between_30_and_70();
 
 
 

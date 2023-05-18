@@ -27,7 +27,7 @@
 #define PI                   3.14159
 
 
-
-
+void pwm(float a_speed);
+void rotate_90degree_Right (void);
 
 #endif /* CARCONTROL_H_ */
